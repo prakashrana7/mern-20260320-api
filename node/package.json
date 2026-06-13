@@ -1,0 +1,12 @@
+{
+  "name": "mern-20260320-api",
+  "version": "1.0.0",
+  "description": "- Node.js is a javascript runtime.\r - Runtine: A program that runs another program.\r - Run JS in local Machine.\r - Built on c++.\r - Powered by Google Chrome V8 Engine\r - used to build:API, real time apps, micro-services",
+  "license": "ISC",
+  "author": "Prakash",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
