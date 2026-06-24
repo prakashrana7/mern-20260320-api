@@ -1,5 +1,6 @@
 import express from "express";
 import multer from "multer";
+import cors from "cors";
 
 import config from "./config/config.js";
 import productRoute from "./routes/product.route.js";
@@ -11,7 +12,6 @@ import bodyParser from "body-parser";
 import logger from "./middlewares/logger.js";
 import auth from "./middlewares/auth.js";
 import connectCloudinary from "./config/cloudinary.js";
-import { version } from "mongoose";
 
 const upload = multer({storage: multer.memoryStorage()});
 

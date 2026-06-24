@@ -32,6 +32,9 @@ const productSchema = new mongoose.Schema({
     imageUrls:{
         type:[String],
     },
+    description: {
+        type: String,
+    },
 });
 
 export default mongoose.model("Product", productSchema);

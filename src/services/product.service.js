@@ -1,6 +1,8 @@
 import { file } from "zod";
 import Product from "../models/Product.js";
 import uploadFile from "../utils/fileUploader.js";
+import promptAI from "../utils/ai.js";
+import { PRODUCT_DESCRIPTION_PROMPT } from "../constants/prompt.js";
 
 const getAllProducts = async (query) => {
     const sort = query.sort ? JSON.parse(query.sort):{};
@@ -33,6 +35,13 @@ const getProductById = async (id) => {
 
 const createProduct= async(data, files, userId) => {
     const uploadedFiles = await uploadFile(files);
+
+    const promptMessage = PRODUCT_DESCRIPTION_PROMPT.replace("%s", data.name)
+    .replace("%s", data.category)
+    .replace("%s", data.brand);
+
+    const description = data.description ?? (await promptAI(promptMessage));
+    
   return await Product.create({ 
     ...data, 
     imageUrls: uploadedFiles.map((file) => file.url), 
