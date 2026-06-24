@@ -41,9 +41,10 @@ const createProduct= async(data, files, userId) => {
     .replace("%s", data.brand);
 
     const description = data.description ?? (await promptAI(promptMessage));
-    
+
   return await Product.create({ 
     ...data, 
+    description,
     imageUrls: uploadedFiles.map((file) => file.url), 
     createdBy: userId, });
 };
