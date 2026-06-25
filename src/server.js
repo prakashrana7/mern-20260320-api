@@ -7,6 +7,7 @@ import productRoute from "./routes/product.route.js";
 import orderRoute from "./routes/order.route.js";
 import userRoute from "./routes/user.route.js";
 import authRoute from "./routes/auth.route.js";
+import pageRoute from "./routes/page.route.js";
 import connetDB from "./config/database.js";
 import bodyParser from "body-parser";
 import logger from "./middlewares/logger.js";
@@ -23,6 +24,8 @@ connectCloudinary();
 app.use(bodyParser.json());
 app.use(logger);
 
+app.set("view engine", "hbs");
+
 app.get("/",(request, response) => {
     response.json({
         status:"ok",
@@ -36,6 +39,7 @@ app.use("/api/products", upload.array("images", 5), productRoute);
 app.use("/api/users", auth, upload.single("image"), userRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/orders", auth, orderRoute);
+app.use("/pages", auth, pageRoute);
  
 app.listen(config.port, () => {
     console.log(`server is running at port ${config.port}.....`);

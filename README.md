@@ -250,4 +250,11 @@ Server ------Response---->Browser
 4. $project => Data formatting
 5. $group => Complex grouped operation
 
-==============
+
+# Template Engine
+
+- Building UI from Node.js and Express
+- Building templates for email or pdf
+- for e.g: handlebars, ejs, njk
+
+===========================
