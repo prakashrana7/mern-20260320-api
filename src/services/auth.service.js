@@ -39,10 +39,9 @@ const login = async (data)=>{
         name: user.name,
         phone: user.phone,
         roles: user.roles,
+        profileImageUrl: user?.profileImageUrl,
         };
-    //find user and match password
-
-};
+    };
 const register = async (data)=>{
     const user = await User.findOne({
          $or: [{email: data?.email}, {phone: data?.phone }],
@@ -72,6 +71,7 @@ const register = async (data)=>{
         name: createdUser.name,
         phone: createdUser.phone,
         roles: createdUser.roles,
+        profileImageUrl: user?.profileImageUrl,
     }; 
 };
 

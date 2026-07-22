@@ -24,6 +24,8 @@ connectCloudinary();
 app.use(bodyParser.json());
 app.use(logger);
 
+app.use(cors());
+
 app.set("view engine", "hbs");
 
 app.get("/",(request, response) => {

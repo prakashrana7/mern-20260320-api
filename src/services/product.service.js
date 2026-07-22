@@ -3,6 +3,7 @@ import Product from "../models/Product.js";
 import uploadFile from "../utils/fileUploader.js";
 import promptAI from "../utils/ai.js";
 import { PRODUCT_DESCRIPTION_PROMPT } from "../constants/prompt.js";
+import { ROLE_ADMIN } from "../constants/roles.js";
 
 const getAllProducts = async (query) => {
     const sort = query?.sort ? JSON.parse(query.sort):{};
@@ -60,7 +61,15 @@ const updateProduct= async(id, input, files) => {
   return await Product.findByIdAndUpdate(id, updateData, {new: true });
 };
 
-const deleteProduct= async(id)=>{
+const deleteProduct= async(id, authUser)=>{
+    const product = await getProductById(id);
+
+     if (authUser._id !== product.createdBy && !authUser.roles.includes(ROLE_ADMIN)) {
+            throw {
+                status: 403,
+                message: "Access denied.",
+            };
+        }
     await Product.findByIdAndDelete(id);
 };
 

@@ -18,9 +18,10 @@ router.get("/count", productController.getTotalCount);
 
 //Dynamic route (:param)
 router.get("/:id", productController.getProductById);
-router.post("/", auth, roleBasedAuth(ROLE_MERCHANT), validate(productSchema), productController.createProduct);
-router.put("/:id", auth, roleBasedAuth(ROLE_MERCHANT), productController.updateProduct);
-router.delete("/:id", auth, roleBasedAuth(ROLE_ADMIN), productController.deleteProduct);
+
+router.post("/", auth, roleBasedAuth(ROLE_ADMIN, ROLE_MERCHANT), validate(productSchema), productController.createProduct);
+router.put("/:id", auth, roleBasedAuth(ROLE_ADMIN, ROLE_MERCHANT), productController.updateProduct);
+router.delete("/:id", auth, roleBasedAuth(ROLE_ADMIN, ROLE_MERCHANT), productController.deleteProduct);
 
 
 export default router;
