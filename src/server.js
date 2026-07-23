@@ -41,7 +41,7 @@ app.use("/api/products", upload.array("images", 5), productRoute);
 app.use("/api/users", auth, upload.single("image"), userRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/orders", auth, orderRoute);
-app.use("/pages", auth, pageRoute);
+app.use("/pages", pageRoute);
  
 app.listen(config.port, () => {
     console.log(`server is running at port ${config.port}.....`);

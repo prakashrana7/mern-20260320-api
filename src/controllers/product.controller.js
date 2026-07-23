@@ -44,7 +44,7 @@ const updateProduct = async (req, res) => {
 const deleteProduct = async (req, res) => {
     const id = req.params.id;
     try{
-    const product = await productService.deleteProduct(id, req.user);
+     await productService.deleteProduct(id, req.user);
 
     res.json({
     message: "Product Deleted Successfully.",
@@ -72,4 +72,10 @@ const getTotalCount = async (req, res) => {
 
 export default {getAllProducts,
      getProductById, 
-     createProduct, updateProduct, deleteProduct, getBrands, getCategories, getTotalCount, };
+     createProduct, 
+     updateProduct, 
+     deleteProduct, 
+     getBrands, 
+     getCategories, 
+     getTotalCount, 
+    };

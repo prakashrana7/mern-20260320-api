@@ -1,4 +1,3 @@
-import { file } from "zod";
 import Product from "../models/Product.js";
 import uploadFile from "../utils/fileUploader.js";
 import promptAI from "../utils/ai.js";
@@ -16,7 +15,6 @@ const getAllProducts = async (query) => {
 
     if (category) filters.category=category;
     if (brands) filters.brand={ $in: brands.split(",")};
-    
     if (name) filters.name = { $regex: name , $options: "i" }; // Ilike match
     if (min) filters.price ={ $gte: min };
     if (max) filters.price ={ ...filters.price, $lte: max };
@@ -47,7 +45,8 @@ const createProduct= async(data, files, userId) => {
     ...data, 
     description,
     imageUrls: uploadedFiles.map((file) => file.url), 
-    createdBy: userId, });
+    createdBy: userId,
+    });
 };
 
 const updateProduct= async(id, input, files) => {
@@ -58,13 +57,14 @@ const updateProduct= async(id, input, files) => {
 
         updateData.imageUrls = uploadedFiles.map((file) => file.url);
     }
-  return await Product.findByIdAndUpdate(id, updateData, {new: true });
+  return await Product.findByIdAndUpdate(id, updateData, { returnDocument: "after",
+   });
 };
 
 const deleteProduct= async(id, authUser)=>{
     const product = await getProductById(id);
 
-     if (authUser._id !== product.createdBy && !authUser.roles.includes(ROLE_ADMIN)) {
+     if (authUser._id !== product.createdBy.toString() && !authUser.roles.includes(ROLE_ADMIN)) {
             throw {
                 status: 403,
                 message: "Access denied.",
@@ -87,4 +87,10 @@ const getTotalCount = async () => {
 
 export default { getAllProducts,
     getProductById, 
-    createProduct, updateProduct, deleteProduct, getBrands, getCategories, getTotalCount, };
+    createProduct, 
+    updateProduct, 
+    deleteProduct, 
+    getBrands, 
+    getCategories, 
+    getTotalCount, 
+};

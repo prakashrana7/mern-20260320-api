@@ -1,8 +1,7 @@
 import { v2 as cloudinary } from "cloudinary";
 
 async function uploadFile(files){
-    
-    const uploadedFiles =[];
+    const uploadedFiles = [];
 
     for (const file of files){
         const result = await new Promise((resolve, reject) => {

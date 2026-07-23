@@ -5,8 +5,6 @@ import { ROLE_ADMIN, ROLE_CUSTOMER, ROLE_MERCHANT } from "../constants/roles.js"
 
 const router = express.Router();
 
-// /api/orders/
-
 router.get("/", 
     roleBasedAuth(ROLE_ADMIN), 
     orderController.getOrders);

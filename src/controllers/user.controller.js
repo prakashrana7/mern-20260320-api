@@ -45,7 +45,7 @@ const updateUser = async (req, res)=>{
 
     res.json(user);
 }catch(error) {
-    res.status(error.status || 400).send(error.message);
+    res.status(400).send(error.message);
 }
     };
 

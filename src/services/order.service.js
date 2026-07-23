@@ -89,11 +89,13 @@ const createOrder = async (data, authUser) => {
 };
 
 const updateOrderStatus = async (id, status) => {
-    return await Order.findByIdAndUpdate(id, { status }, { new: true });
+    return await Order.findByIdAndUpdate(id, { status }, { returnDocument: "after" },
+    );
 };
 
 const cancelOrder = async(id) => {
-    return await Order.findByIdAndUpdate(id, {status: ORDER_STATUS_CANCELLED }, { new: true });
+    return await Order.findByIdAndUpdate(id, {status: ORDER_STATUS_CANCELLED }, { returnDocument: "after" },
+    );
 };
 
 const deleteOrder = async (id) => {
@@ -119,7 +121,8 @@ const confirmOrder = async (id, status) => {
 
     return await Order.findByIdAndUpdate(id, 
         { status: ORDER_STATUS_CONFIRMED }, 
-        { new: true },);
+        { returnDocument: "after" },
+    );
 };
 
 const getOrdersByUser = async (userId, status) => {
@@ -166,7 +169,6 @@ const getOrdersByMerchant = async (merchantId) => {
                 shippingAddress: 1,
                 status: 1,
                 totalPrice: 1,
-                //"orderItems.quantity": 1,
                 "user._id": 1,
                 "user.name": 1,
                 "user.email": 1,
@@ -196,7 +198,7 @@ const orderPaymentViaCash= async (id) => {
         status: ORDER_STATUS_CONFIRMED,
         payment: orderPayment.id,
     },
-    { new: true },
+    { returnDocument: "after" },
     );
 };
 

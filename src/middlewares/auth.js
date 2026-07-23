@@ -5,7 +5,7 @@ const auth = (req, res, next) =>{
 
     let token;
 
-    if (authHeader && authHeader.startsWith('Bearer ')) {
+    if (authHeader && authHeader.startsWith("Bearer ")) {
 
         token = authHeader.split(" ")[1];
     }else{

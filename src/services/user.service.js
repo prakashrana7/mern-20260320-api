@@ -5,19 +5,19 @@ import authService from "./auth.service.js";
 
 const getAll = async (query) => {
     const sort = query.sort ? JSON.parse(query.sort):{};
-        const limit = query.limit ?? 10;
-        const offset = query.offset ?? 0;
+    const limit = query.limit ?? 10;
+    const offset = query.offset ?? 0;
     
-        const filters={};
+    const filters={};
     
-        const { name, email, phone} = query;
+    const { name, email, phone} = query;
     
-        if (name) filters.name = { $regex: name , $options: "i" };
-        if (email) filters.email = { $regex: email , $options: "i" };
-        if (phone) filters.phone = { $regex: phone , $options: "i" };
+    if (name) filters.name = { $regex: name , $options: "i" };
+    if (email) filters.email = { $regex: email , $options: "i" };
+    if (phone) filters.phone = { $regex: phone , $options: "i" };
         
-        return await User.find(filters).sort(sort).limit(limit).skip(offset);
-    };
+    return await User.find(filters).sort(sort).limit(limit).skip(offset);
+};
 
 const getById =async(id, authUser) => {
      if (authUser._id !== id && !authUser.roles.includes(ROLE_ADMIN)) {
@@ -80,7 +80,8 @@ const updateUserRoles = async (id, roles, authUser) => {
             message: "Access denied.",
         };
     }
-    return await User.findByIdAndUpdate(id, { roles }, { returnDocument: "after" },);
+    return await User.findByIdAndUpdate(id, { roles }, { returnDocument: "after" },
+    );
 };
 
 export default { 
