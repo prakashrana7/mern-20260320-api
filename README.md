@@ -256,5 +256,3 @@ Server ------Response---->Browser
 - Building UI from Node.js and Express
 - Building templates for email or pdf
 - for e.g: handlebars, ejs, njk
-
-===========================
