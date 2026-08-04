@@ -1,270 +1,153 @@
 [
   {
-    "id": "694aa7a0d9fb1310b0004a20",
-    "name": "Iphone 16 Pro Max",
-    "brand": "Apple",
-    "category": "Smartphones",
-    "price": 200000,
-    "createdAt": "2025-12-23T14:27:28.275Z",
-    "stock": 10,
+    "_id": "6a5b770a104b48cd097dd9e6",
+    "name": "Classic White Sneakers",
+    "brand": "Nike",
+    "category": "Sneakers",
+    "price": -3000,
+    "stock": 120,
+    "createdAt": "2026-07-18T12:08:33.958Z",
+    "createdBy": "6a1b8fdc9e0fe65664adaa5b",
     "imageUrls": [
-      "http://res.cloudinary.com/djfop5zyp/image/upload/v1766500255/mern-20251103/b3f2fbj5eyzjlv3djgeb.jpg"
+      "http://res.cloudinary.com/danioarzz/image/upload/v1784379143/20260320/jk30dzqxaqg9pqwbjjrq.jpg",
+      "http://res.cloudinary.com/danioarzz/image/upload/v1784379146/20260320/sir2axhmggmwybav5icv.jpg"
     ],
-    "createdBy": "694aa727d9fb1310b0004a18"
-    
+    "description": "Classic white sneakers are the ultimate versatile wardrobe staple, renowned for their clean aesthetic, minimalist lines, and ability to pair with almost any outfit. They seamlessly blend effortless everyday style with all-day comfort for walking or casual outings.",
+    "__v": 0
   },
   {
-    "id": "694aa7f6d9fb1310b0004a25",
-    "name": "Mac Book Pro M4 Pro",
-    "brand": "Apple",
-    "category": "Laptops",
-    "price": 350000,
-    "createdAt": "2025-12-23T14:27:28.275Z",
-    "stock": 1,
+    "_id": "6a5b77b0104b48cd097dd9ed",
+    "name": "Performance Shoes",
+    "brand": "Puma",
+    "category": "Running",
+    "price": 2100,
+    "stock": 100,
+    "createdAt": "2026-07-18T12:08:33.958Z",
+    "createdBy": "6a1b8fdc9e0fe65664adaa5b",
     "imageUrls": [
-      "http://res.cloudinary.com/djfop5zyp/image/upload/v1766500340/mern-20251103/ejyzt3jlrahqkeia1dv4.webp"
+      "http://res.cloudinary.com/danioarzz/image/upload/v1784379312/20260320/e9qhijysqgvix9cj5dcq.jpg"
     ],
-    "createdBy": "694aa727d9fb1310b0004a18"
-    
+    "description": "Performance running shoes are engineered for forward motion, repeated impact, and energy efficiency. They prioritize a lightweight feel, propulsion, and advanced shock absorption over casual style. These designs are tailored to help runners optimize their speed, maximize running economy, and set personal",
+    "__v": 0
   },
   {
-    "id": "694ab2526f6f172ab9121e0b",
-    "name": "Samsung s25 Ultra",
-    "brand": "Samsung",
-    "category": "Smartphones",
-    "price": 180000,
-    "createdAt": "2025-12-23T15:16:17.894Z",
-    "stock": 1,
-    "imageUrls": [
-      "http://res.cloudinary.com/djfop5zyp/image/upload/v1766502982/mern-20251103/ssd3cxgmtzir5yjte768.jpg"
-    ],
-    "createdBy": "694aa727d9fb1310b0004a18"
-  },
-  {
-    "id": "694ab3870322073d064318b2",
-    "name": "OnePlus Nord 3",
-    "brand": "OnePlus",
-    "category": "Smartphones",
-    "price": 80000,
-    "createdAt": "2025-12-23T15:20:09.464Z",
-    "stock": 1,
-    "imageUrls": [
-      "http://res.cloudinary.com/djfop5zyp/image/upload/v1766503288/mern-20251103/pvmhnemsl6hzuj5yhuzt.jpg"
-    ],
-    "createdBy": "694aa727d9fb1310b0004a18"
-  },
-  {
-    "id": "694ab4ec04d9cec85b289674",
-    "name": "Apple Watch 4",
-    "brand": "Apple",
-    "category": "Smartwatches",
-    "price": 80000,
-    "createdAt": "2025-12-23T15:27:21.282Z",
-    "stock": 1,
-    "imageUrls": [
-      "http://res.cloudinary.com/djfop5zyp/image/upload/v1766503647/mern-20251103/mqz7o4qxxorroixpd1sd.avif"
-    ],
-    "createdBy": "694aa727d9fb1310b0004a18"
-  },
-  {
-    "id": "696a50dfe107d80275e4890e",
-    "name": "Acer Predator Helios 300",
-    "brand": "Acer",
-    "category": "Laptops",
-    "price": 180000,
-    "createdAt": "2026-01-16T14:48:23.366Z",
-    "stock": 1,
-    "imageUrls": [
-      "http://res.cloudinary.com/djfop5zyp/image/upload/v1768575187/mern-20251103/etiu2s9kw0nxlbkcgp2h.png",
-      "http://res.cloudinary.com/djfop5zyp/image/upload/v1768575188/mern-20251103/kfagd4jzpmlaka6lovpj.jpg"
-    ],
-    "createdBy": "694aa727d9fb1310b0004a18"   
-  },
-  {
-    "id": "696a512d3f2477082461bafc",
-    "name": "Acer Nitro",
-    "brand": "Acer",
-    "category": "Laptops",
-    "price": 120000,
-    "createdAt": "2026-01-16T14:53:33.963Z",
-    "stock": 1,
-    "imageUrls": [
-      "http://res.cloudinary.com/djfop5zyp/image/upload/v1768575248/mern-20251103/ut27dwomvhztldajigz7.jpg"
-    ],
-    "createdBy": "694aa727d9fb1310b0004a18"
-  },
-  {
-    "id": "696a516f3f2477082461baff",
-    "name": "Pixel 10 16GB 512 MB",
-    "brand": "Google",
-    "category": "Smartphones",
-    "price": 200000,
-    "createdAt": "2026-01-16T14:53:33.963Z",
-    "stock": 1,
-    "imageUrls": [
-      "http://res.cloudinary.com/djfop5zyp/image/upload/v1768575326/mern-20251103/ysymzn0uevphha6ngbmi.webp"
-    ],
-    "createdBy": "694aa727d9fb1310b0004a18"
-  },
-  {
-    "id": "6972438219705465c975b9a3",
-    "name": "Google Pixel 10 XL 16GB 512GB",
-    "brand": "Google",
-    "category": "Smartphones",
-    "price": 156000,
-    "createdAt": "2026-01-22T15:31:41.040Z",
-    "stock": 25,
-    "imageUrls": [
-      "http://res.cloudinary.com/djfop5zyp/image/upload/v1769096063/mern-20251103/nzal5x3lq9cwqtzobome.jpg"
-    ],
-    "createdBy": "696e3d40e71a09959e6a31ca"
-  },
-  {
-    "id": "697244ce19705465c975b9b1",
-    "name": "Acer Predator Helios 300 2025 16GB 1TB I5 13Gen",
-    "brand": "Acer",
-    "category": "Laptops",
-    "price": 300000,
-    "createdAt": "2026-01-22T15:31:41.040Z",
-    "stock": 26,
-    "imageUrls": [
-      "http://res.cloudinary.com/djfop5zyp/image/upload/v1769096379/mern-20251103/t7r4kefm4svrftxk0g9w.jpg",
-      "http://res.cloudinary.com/djfop5zyp/image/upload/v1769096380/mern-20251103/gzzekj9b6dphy1rgwvod.png"
-    ],
-    "createdBy": "696e3d40e71a09959e6a31ca"
-  },
-  {
-    "id": "69724587540d3e386cea0ad8",
-    "name": "Samsung S24 Ultra",
-    "brand": "Samsung",
-    "category": "Smartphones",
-    "price": 127000,
-    "createdAt": "2026-01-22T15:42:34.202Z",
-    "stock": null,
-    "imageUrls": [
-      "http://res.cloudinary.com/djfop5zyp/image/upload/v1769096561/mern-20251103/tfrqkll6u1kbuqbx1df8.jpg"
-    ],
-    "createdBy": "696e3d40e71a09959e6a31ca"
-  },
-  {
-    "id": "697331678be1fcd889502816",
-    "name": "Lenovo Legion Pro 7i Gaming Laptop 2025",
-    "brand": "Lenovo",
-    "category": "Laptops",
-    "price": 630000,
-    "createdAt": "2026-01-23T08:24:40.540Z",
-    "stock": 12,
-    "imageUrls": [],
-    "createdBy": "696e3d40e71a09959e6a31ca"
-  },
-  {
-    "id": "6973369595e91ed11f289441",
-    "name": "Iphone 17 pro max 16GB RAM 1TB ",
-    "brand": "Apple",
-    "category": "Smartphones",
-    "price": 270000,
-    "createdAt": "2026-01-23T08:34:00.496Z",
-    "stock": 6,
-    "imageUrls": [
-      "http://res.cloudinary.com/djfop5zyp/image/upload/v1769158282/mern-20251103/b5nyl727e1bydgo8pdig.jpg"
-    ],
-    "createdBy": "696e3d40e71a09959e6a31ca"
-  },
-  {
-    "id": "69762d38c7682357c0d04062",
-    "name": "Wireless Headphone with 8D Surround Sound",
-    "brand": "Beats by Dr.Dre",
-    "category": "Headphones",
-    "price": 23000,
-    "createdAt": "2026-01-25T14:32:22.169Z",
-    "stock": 25,
-    "imageUrls": [
-      "http://res.cloudinary.com/djfop5zyp/image/upload/v1769353389/mern-20251103/b45506tnp8futhpruu1b.jpg"
-    ],
-    "createdBy": "696e3d40e71a09959e6a31ca"
-  },
-  {
-    "id": "6978cd0597dd96e2c4220cf4",
-    "name": "Logitech MX Master 3S Wireless mouse",
-    "brand": "Logitech",
-    "category": "Electronics",
-    "price": 15000,
-    "createdAt": "2026-01-27T14:25:42.522Z",
-    "stock": 80,
-    "imageUrls": [
-      "http://res.cloudinary.com/djfop5zyp/image/upload/v1769524468/mern-20251103/zcw66z4inln7qjtaov7w.webp",
-      "http://res.cloudinary.com/djfop5zyp/image/upload/v1769524468/mern-20251103/wpbasbuedeq9araasrml.webp"
-    ],
-    "createdBy": "696e3d40e71a09959e6a31ca"
-  },
-  {
-    "id": "697f6ee35aaeba83ee1a8a64",
-    "name": "Nothing Phone 3 | Snapdragon 3 Elite | 12GB RAM | 512GB ",
-    "brand": "Nothing",
-    "category": "Smartphones",
-    "price": 150000,
-    "createdAt": "2026-02-01T14:24:57.072Z",
-    "stock": 40,
-    "imageUrls": [
-      "http://res.cloudinary.com/djfop5zyp/image/upload/v1769959126/mern-20251103/qmx12anvkmyr2gp5cndf.jpg",
-      "http://res.cloudinary.com/djfop5zyp/image/upload/v1769959126/mern-20251103/drbg5j25wcyuwzjfo9l4.webp",
-      "http://res.cloudinary.com/djfop5zyp/image/upload/v1769959126/mern-20251103/gakpek2ejshram1nyw6c.webp",
-      "http://res.cloudinary.com/djfop5zyp/image/upload/v1769959127/mern-20251103/nzhscno1pegknnvh2cyp.jpg"
-    ],
-    "createdBy": "696e3d40e71a09959e6a31ca"
-  },
-  {
-    "id": "69835d9960c1d6a7b34d7464",
-    "name": "Ultima Marvel 16W RMS Bluetooth Speaker with Ultima Supreme Sound",
-    "brand": "Ultima",
-    "category": "Speakers",
+    "_id": "6a5b7844104b48cd097dd9f2",
+    "name": "Leather Casual Boots",
+    "brand": "Martin",
+    "category": "Boots",
     "price": 3000,
-    "createdAt": "2026-02-04T14:12:03.730Z",
-    "stock": 50,
+    "stock": 160,
+    "createdAt": "2026-07-18T12:08:33.958Z",
+    "createdBy": "6a1b8fdc9e0fe65664adaa5b",
     "imageUrls": [
-      "http://res.cloudinary.com/djfop5zyp/image/upload/v1770216842/mern-20251103/fdphmhvtenelbvoxxmwp.png",
-      "http://res.cloudinary.com/djfop5zyp/image/upload/v1770216843/mern-20251103/jhlhctgkq5vgvsgikjhb.webp"
+      "http://res.cloudinary.com/danioarzz/image/upload/v1784379460/20260320/vntiwchsz4vb8etjehzn.jpg"
     ],
-    "createdBy": "69835834d67794a9a2352bc4"
+    "description": "Leather casual boots are versatile, everyday footwear that combine rugged durability with a relaxed aesthetic. Ranging from ankle-height chukkas to versatile Chelsea or moc-toe styles, they feature softer, flexible leathers and comfortable rubber soles designed for effortless, all-day wear.",
+    "__v": 0
   },
   {
-    "id": "69835e2560c1d6a7b34d747b",
-    "name": "FANTECH ATOM MK886 MECHANICAL KEYBOARD",
-    "brand": "Fantech",
-    "category": "Keyboards",
+    "_id": "6a5b78c6104b48cd097dd9f4",
+    "name": "Formal Dress Shoes",
+    "brand": "Royal",
+    "category": "Formal",
+    "price": 1800,
+    "stock": 79,
+    "createdAt": "2026-07-18T12:08:33.958Z",
+    "createdBy": "6a1b8fdc9e0fe65664adaa5b",
+    "imageUrls": [
+      "http://res.cloudinary.com/danioarzz/image/upload/v1784379591/20260320/ni3qa4n5qhk6vmoibxlp.jpg"
+    ],
+    "description": "Formal dress shoes are sleek, high-quality footwear designed to complement tailored suits and tuxedos. Defined by their elegant silhouettes, minimal detailing, and premium materials like polished calfskin or patent leather, the most classic styles feature closed-lacing systems, such as the quintessential Oxford.",
+    "__v": 0
+  },
+  {
+    "_id": "6a5b7926104b48cd097dd9f6",
+    "name": "High Top Sneakers",
+    "brand": "Nike",
+    "category": "Sneakers",
     "price": 5000,
-    "createdAt": "2026-02-04T14:12:03.730Z",
-    "stock": 10,
+    "stock": 150,
+    "createdAt": "2026-07-18T12:08:33.958Z",
+    "createdBy": "6a1b8fdc9e0fe65664adaa5b",
     "imageUrls": [
-      "http://res.cloudinary.com/djfop5zyp/image/upload/v1770216997/mern-20251103/szu6iayd2gbnyj89dstu.jpg"
+      "http://res.cloudinary.com/danioarzz/image/upload/v1784379734/20260320/bejiwmzwqskkiduvtyo2.jpg"
     ],
-    "createdBy": "6980b6577615107a338b8d14"
+    "description": "High-top sneakers are athletic or lifestyle shoes that extend over the wearer's ankle. Historically rooted in sports, they have transitioned into an essential fashion staple, blending functionality with distinct street style.",
+    "__v": 0
   },
   {
-    "id": "698366b8a924020394e875da",
-    "name": "Ultima Soundbox S50",
-    "brand": "Ultima",
-    "category": "Speakers",
-    "price": 16999,
-    "createdAt": "2026-02-04T15:29:11.905Z",
-    "stock": 20,
+    "_id": "6a5b7a01104b48cd097dda0b",
+    "name": "Elegant Heels",
+    "brand": "Christian Louboutin",
+    "category": "Heels",
+    "price": 2499,
+    "stock": 100,
+    "createdAt": "2026-07-18T12:08:33.958Z",
+    "createdBy": "6a1b8fdc9e0fe65664adaa5b",
     "imageUrls": [
-      "http://res.cloudinary.com/djfop5zyp/image/upload/v1770219191/mern-20251103/dzaoym6kpsg7vsvup2vy.jpg",
-      "http://res.cloudinary.com/djfop5zyp/image/upload/v1770219192/mern-20251103/noc5va5bcqn6btqdhbtw.webp"
+      "http://res.cloudinary.com/danioarzz/image/upload/v1784379939/20260320/fbr7z12742ivmxfrx9ki.jpg"
     ],
-    "createdBy": "69835834d67794a9a2352bc4"
+    "description": "Elegant heels are premium, sophisticated footwear designed to elevate a silhouette and add a refined touch to formal attire. They balance graceful proportions with high-end craftsmanship, serving as a staple for galas, weddings, and professional settings.",
+    "__v": 0
   },
   {
-    "id": "69bd65b364370d8e67062a89",
-    "name": "Mac Book Pro 16 Inch 32 GB RAM",
-    "brand": "Apple",
-    "category": "Laptops",
-    "price": 350000,
-    "createdAt": "2026-03-20T15:05:08.738Z",
-    "stock": 36,
+    "_id": "6a5b7f77104b48cd097dda1a",
+    "name": "Sandals",
+    "brand": " ⁠Jimmy Choo",
+    "category": "Sandals",
+    "price": 999,
+    "stock": 89,
+    "createdAt": "2026-07-18T12:08:33.958Z",
+    "createdBy": "6a1b8fdc9e0fe65664adaa5b",
     "imageUrls": [
-      "http://res.cloudinary.com/djfop5zyp/image/upload/v1774020005/mern-20251103/u5y31tbc60nsg5l4hr8f.jpg"
+      "http://res.cloudinary.com/danioarzz/image/upload/v1784381303/20260320/ysxt3hnshofxgwwbcrc7.jpg"
     ],
-    "createdBy": "696e3d40e71a09959e6a31ca"
+    "description": "Sandals are open-toed footwear consisting of a sole secured to the foot by straps that pass over the instep and around the ankle. They range widely from casual sliders and flip-flops to dressy platform or heeled options.",
+    "__v": 0
+  },
+  {
+    "_id": "6a5b8006104b48cd097dda1e",
+    "name": "Classic Black Sneakers",
+    "brand": "Nike",
+    "category": "Sneakers",
+    "price": 3000,
+    "stock": 45,
+    "createdAt": "2026-07-18T12:08:33.958Z",
+    "createdBy": "6a1b8fdc9e0fe65664adaa5b",
+    "imageUrls": [
+      "http://res.cloudinary.com/danioarzz/image/upload/v1784381446/20260320/mhnlawapz1azow54qmxl.jpg"
+    ],
+    "description": "Classic black sneakers are a timeless, highly versatile footwear staple that pairs effortlessly with almost any casual or smart-casual outfit. They feature a monochromatic or mostly black upper body, usually sitting on either a matching black or a contrasting crisp white sole.",
+    "__v": 0
+  },
+  {
+    "_id": "6a5b8054104b48cd097dda21",
+    "name": "Goldstar Classic 132 sports Shoes for Men",
+    "brand": "Goldstar",
+    "category": "Sneakers",
+    "price": 999,
+    "stock": 199,
+    "createdAt": "2026-07-18T12:08:33.958Z",
+    "createdBy": "6a1b8fdc9e0fe65664adaa5b",
+    "imageUrls": [
+      "http://res.cloudinary.com/danioarzz/image/upload/v1784386279/20260320/qgggqwn7v6qtouhl8hzo.jpg"
+    ],
+    "description": "The Goldstar Classic 132 Sports Shoes for Men is an affordable, durable, and highly versatile everyday shoe manufactured by the iconic Nepali brand ⁠GoldStar Shoes. It is widely recognized as an excellent budget-friendly choice tailored for multi-purpose activities, spanning from athletic training to casual daily use.",
+    "__v": 0
+  },
+  {
+    "_id": "6a5b8aaf104b48cd097dde05",
+    "name": "Converse Shoes",
+    "brand": "Puma",
+    "category": "Sneakers",
+    "price": 1500,
+    "stock": 87,
+    "createdAt": "2026-07-18T12:08:33.958Z",
+    "createdBy": "6a1b8fdc9e0fe65664adaa5b",
+    "imageUrls": [
+      "http://res.cloudinary.com/danioarzz/image/upload/v1784385355/20260320/rpgsv4blqgegnu59knuk.jpg"
+    ],
+    "description": "Converse, an iconic American footwear brand, has been synonymous with rebellion, self-expression, and timeless style since its inception in 1908. Renowned for its classic Chuck Taylor All Star sneakers, Converse effortlessly blends fashion with authenticity, appealing to individuals who embrace individuality and creativity. The brand's rich history intersects with various subcultures, from basketball courts to punk rock stages, making Converse a symbol of cultural significance. With a commitment to craftsmanship and innovation, Converse continues to evolve while staying true to its roots. Embracing a diverse array of colors, patterns, and collaborations, Converse invites wearers to make a statement that transcends fashion trends. Whether on the streets or on the stage, Converse empowers individuals to express their unique identity with every step, fostering a community that celebrates the spirit of originality.",
+    "__v": 0
   }
 ]
