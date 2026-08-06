@@ -8,6 +8,7 @@ import orderRoute from "./routes/order.route.js";
 import userRoute from "./routes/user.route.js";
 import authRoute from "./routes/auth.route.js";
 import pageRoute from "./routes/page.route.js";
+import contactRoute from "./routes/contact.route.js";
 import connetDB from "./config/database.js";
 import bodyParser from "body-parser";
 import logger from "./middlewares/logger.js";
@@ -42,6 +43,7 @@ app.use("/api/users", auth, upload.single("image"), userRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/orders", auth, orderRoute);
 app.use("/pages", pageRoute);
+app.use("/api/contact", contactRoute);
  
 app.listen(config.port, () => {
     console.log(`server is running at port ${config.port}.....`);
