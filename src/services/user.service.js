@@ -5,7 +5,6 @@ import authService from "./auth.service.js";
 
 const getAll = async (query) => {
     const sort = query.sort ? JSON.parse(query.sort):{};
-    const limit = query.limit ?? 10;
     const offset = query.offset ?? 0;
     
     const filters={};
@@ -16,7 +15,7 @@ const getAll = async (query) => {
     if (email) filters.email = { $regex: email , $options: "i" };
     if (phone) filters.phone = { $regex: phone , $options: "i" };
         
-    return await User.find(filters).sort(sort).limit(limit).skip(offset);
+    return await User.find(filters).sort(sort).skip(offset);
 };
 
 const getById =async(id, authUser) => {
@@ -41,6 +40,20 @@ const updateUser = async (id, data, authUser) => {
         };
     }
 
+      if (data?.phone) {
+        const existingUser = await User.findOne({
+            phone: data.phone,
+            _id: { $ne: id },
+        });
+
+        if (existingUser) {
+            throw {
+                status: 400,
+                message: "Phone number is already registered with another user.",
+            };
+        }
+    }
+    
     return await User.findByIdAndUpdate(
         id, 
          {
