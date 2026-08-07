@@ -22,6 +22,8 @@ const getOrders = async () => {
     createdDate: -1,
        },
     },
+
+    // Get user information
     {
       $lookup: {
         from: "users",
@@ -33,6 +35,8 @@ const getOrders = async () => {
     {
       $unwind: "$user",
     },
+
+    // Get product information
     {
       $lookup: {
         from: "products",
@@ -41,27 +45,53 @@ const getOrders = async () => {
         as: "orderItems",
       },
     },
+
+    // Get payment information
     {
-      $match: {},
+      $lookup: {
+        from: "payments",
+        localField: "payment",
+        foreignField: "_id",
+        as: "payment",
+       },
+    },
+    {
+      $unwind: {
+        path: "$payment",
+        preserveNullAndEmptyArrays: true,
+      },
     },
     {
       $project: {
+        // Order information
+        _id: 1,
         orderNumber: 1,
-        payment: 1,
         shippingAddress: 1,
         status: 1,
         totalPrice: 1,
+        createdDate: 1,
+
+        // User information
         "user._id": 1,
         "user.name": 1,
         "user.email": 1,
         "user.phone": 1,
+
+        // Product information
         "orderItems._id": 1,
         "orderItems.name": 1,
         "orderItems.price": 1,
         "orderItems.brand": 1,
         "orderItems.category": 1,
         "orderItems.imageUrls": 1,
-        createdDate: 1,
+
+        // Payment information
+        "payment._id": 1,
+        "payment.transactionId": 1,
+        "payment.amount": 1,
+        "payment.method": 1,
+        "payment.status": 1,
+        "payment.createdAt": 1,
       },
     },
   ]);
