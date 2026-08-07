@@ -18,6 +18,11 @@ import mongoose from "mongoose";
 const getOrders = async () => {
     return await Order.aggregate([
     {
+    $sort: {
+    createdDate: -1,
+       },
+    },
+    {
       $lookup: {
         from: "users",
         localField: "user",
