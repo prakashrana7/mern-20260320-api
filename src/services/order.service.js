@@ -168,7 +168,8 @@ const getOrdersByUser = async (userId, status) => {
     return await Order.find(filter)
      .sort({ createdDate: -1 })
      .populate("user", "name email phone")
-    .populate("orderItems.product", "name brand category price imageUrls");
+     .populate("orderItems.product", "name brand category price imageUrls")
+     .populate("payment", "transactionId amount method status createdAt");
 };
 
 const getOrdersByMerchant = async (merchantId) => {
