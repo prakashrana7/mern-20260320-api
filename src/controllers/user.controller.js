@@ -6,7 +6,7 @@ const createUser = async (req, res)=>{
 
         res.json(user);
     }catch(error) {
-        res.status(400).send(error.message);
+        res.status(error.status || 400).json({message: error.message});
     }
 };
 
@@ -16,7 +16,7 @@ const getAllUsers = async (req, res)=>{
 
     res.json(user);
 }catch(error) {
-    res.status(400).send(error.message);
+    res.status(error.status || 400).json({message: error.message});
 }
     };
 
@@ -26,7 +26,7 @@ const getById = async (req, res) => {
 
     res.json(user);
 }catch(error) {
-    res.status(error.status || 400).send(error.message);
+    res.status(error.status || 400).json({message: error.message});
 }
     };
 
@@ -36,30 +36,31 @@ const updateUser = async (req, res)=>{
 
     res.json(user);
 }catch(error) {
-    res.status(error.status || 400).send(error.message);
+    res.status(error.status || 400).json({message: error.message});
 }
     };
-    const deleteUser = async (req, res)=>{
+
+const deleteUser = async (req, res)=>{
     try{
     const user = await userService.deleteUser(req.params.id);
 
     res.json(user);
 }catch(error) {
-    res.status(400).send(error.message);
+    res.status(error.status || 400).json({message: error.message});
 }
     };
 
-    const updateProfileImage = async (req, res) => {
+const updateProfileImage = async (req, res) => {
     try{
     const user = await userService.updateProfileImage(req.user._id, req.file);
 
     res.json(user);
 }catch(error) {
-    res.status(error.status || 400).send(error.message);
+    res.status(error.status || 400).json({message: error.message});
 }
     };
 
-    const updateUserRoles = async (req, res) => {
+const updateUserRoles = async (req, res) => {
     try {
     const user = await userService.updateUserRoles(
         req.params.id, 
@@ -69,7 +70,7 @@ const updateUser = async (req, res)=>{
 
     res.json(user);
 }catch(error) {
-    res.status(error.status || 400).send(error.message);
+    res.status(error.status || 400).json({message: error.message});
 }
     };
 export default {

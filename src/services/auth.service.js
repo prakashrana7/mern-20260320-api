@@ -3,6 +3,7 @@ import User from "../models/User.js";
 import bcrypt from "bcrypt";
 import config from "../config/config.js";
 import sendEmail from "../utils/email.js";
+import crypto from "node:crypto";
 
 const login = async (data)=>{
     
