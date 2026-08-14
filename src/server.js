@@ -9,7 +9,7 @@ import userRoute from "./routes/user.route.js";
 import authRoute from "./routes/auth.route.js";
 import pageRoute from "./routes/page.route.js";
 import contactRoute from "./routes/contact.route.js";
-import connetDB from "./config/database.js";
+import connectDB from "./config/database.js";
 import bodyParser from "body-parser";
 import logger from "./middlewares/logger.js";
 import auth from "./middlewares/auth.js";
@@ -18,9 +18,6 @@ import connectCloudinary from "./config/cloudinary.js";
 const upload = multer({storage: multer.memoryStorage()});
 
 const app = express();
-
-connetDB();
-connectCloudinary();
 
 app.use(bodyParser.json());
 app.use(logger);
@@ -45,6 +42,22 @@ app.use("/api/orders", auth, orderRoute);
 app.use("/pages", pageRoute);
 app.use("/api/contact", contactRoute);
  
+const startServer = async () => {
+try {
+     // Connect to MongoDB before starting the server
+    await connectDB();
+
+    // Connect Cloudinary
+    connectCloudinary();
+
+    // Start server only after MongoDB is connected
 app.listen(config.port, () => {
     console.log(`server is running at port ${config.port}.....`);
 });
+} catch (error) {
+    console.error("Server startup failed. MongoDB connection could not be established.");
+    process.exit(1);
+    }
+};
+
+startServer();
