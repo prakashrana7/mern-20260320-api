@@ -3,9 +3,8 @@ import mongoose from "mongoose";
 const userSchema = new mongoose.Schema({
     name: {type: String, 
     required: [true, "User name is required."], 
-    minLength: 3, 
-    maxLength: 50,
-
+    minLength: [3, "Name must be at least 3 characters."],
+    maxLength: [50,  "Name cannot exceed 50 characters."],
     },
     email: {
         type: String, 
@@ -30,7 +29,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: [true, "Phone number is required."],
         unique: true,
-         match: [/^\d{10}$/, "Phone number must be exactly 10 digits and contain only numbers."]
+         match: [/^(98|97)\d{8}$/, "Phone number must start with 98 or 97 and contain exactly 10 digits."],
     },
     createdAt:{
         type: Date,
@@ -42,10 +41,25 @@ const userSchema = new mongoose.Schema({
     },
     address: {
         city: {
-            required: true,
             type: String,
+            required: [true, "Local Address is required."],
+            minLength: [3, "Local Address must be at least 3 characters."],
+            maxLength: [150, "Local Address cannot exceed 150 characters."],
+            match: [/^[A-Za-z0-9][A-Za-z0-9\s,-]*[A-Za-z0-9]$/, "Please enter a valid city."],
         },
-        province: String,
+        province: { 
+            type: String,
+            required: [true, "Please select a province."],
+            validate: {
+                validator: (value) => {
+                    return (
+                        typeof value === "string" &&
+                        value.trim().length > 0
+                    );
+                },
+                message: "Please select a province.",
+            },
+        },
         street: String,
         country:{
             type: String,

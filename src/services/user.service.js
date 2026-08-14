@@ -62,7 +62,10 @@ const updateUser = async (id, data, authUser) => {
             address: data?.address,
             isActive: data?.isActive,
          }, 
-         { returnDocument: "after" },
+         { 
+            returnDocument: "after",
+            runValidators: true,
+          },
         );
  };
 
