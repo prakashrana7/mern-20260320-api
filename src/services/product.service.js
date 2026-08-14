@@ -5,7 +5,7 @@ import { PRODUCT_DESCRIPTION_PROMPT } from "../constants/prompt.js";
 import { ROLE_ADMIN } from "../constants/roles.js";
 
 const getAllProducts = async (query) => {
-    const sort = query?.sort ? JSON.parse(query.sort):{};
+    const sort = query?.sort ? JSON.parse(query.sort):{ createdAt: -1 };
     const limit = query?.limit ?? 10;
     const offset = query?.offset ?? 0;
 
@@ -21,6 +21,14 @@ const getAllProducts = async (query) => {
     if (createdBy) filters.createdBy=createdBy;
 
     const products = await Product.find(filters).sort(sort).limit(limit).skip(offset);
+    if (query?.paginate === "true") {
+        const total = await Product.countDocuments(filters);
+
+        return {
+            products,
+            total,
+        };
+    }
 
     return products;
 };
