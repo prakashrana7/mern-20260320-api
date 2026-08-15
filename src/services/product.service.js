@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import Product from "../models/Product.js";
 import uploadFile from "../utils/fileUploader.js";
 import promptAI from "../utils/ai.js";
@@ -34,6 +35,13 @@ const getAllProducts = async (query) => {
 };
 
 const getProductById = async (id) => {
+     if (!mongoose.Types.ObjectId.isValid(id)) {
+        throw {
+            status: 400,
+            message: "Invalid product ID.",
+        };
+    }
+
     const product = await Product.findById(id);
    
     return product;

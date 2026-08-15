@@ -12,8 +12,8 @@ const login = async (data)=>{
     });
     if (!user){
         throw{
-            status: 404,
-            message: "User not found.",
+            status: 401,
+            message: "Invalid email or password.",
         };
     }
 
@@ -28,8 +28,8 @@ const login = async (data)=>{
 
     if (!isPasswordMatch){
         throw{
-            status: 400,
-            message: "Passwords do not match.",
+            status: 401,
+            message: "Invalid email or password..",
         };
     }
     return {

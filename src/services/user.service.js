@@ -1,4 +1,4 @@
-import { ROLE_ADMIN, ROLE_SUPER_ADMIN } from "../constants/roles.js";
+import { ROLE_ADMIN, ROLE_CUSTOMER, ROLE_MERCHANT, ROLE_SUPER_ADMIN } from "../constants/roles.js";
 import User from "../models/User.js";
 import uploadFile from "../utils/fileUploader.js";
 import authService from "./auth.service.js";
@@ -15,7 +15,7 @@ const getAll = async (query) => {
     if (email) filters.email = { $regex: email , $options: "i" };
     if (phone) filters.phone = { $regex: phone , $options: "i" };
         
-    return await User.find(filters).sort(sort).skip(offset);
+    return await User.find(filters).select("-password").sort(sort).skip(offset);
 };
 
 const getById =async(id, authUser) => {
@@ -25,7 +25,7 @@ const getById =async(id, authUser) => {
             message: "Access denied.",
         };
     }
-    return await User.findById(id);
+    return await User.findById(id).select("-password");
 };
 
 const createUser = async (data)=>{
@@ -66,7 +66,7 @@ const updateUser = async (id, data, authUser) => {
             returnDocument: "after",
             runValidators: true,
           },
-        );
+        ).select("-password");
  };
 
 const deleteUser = async (id) => {
@@ -83,10 +83,23 @@ const updateProfileImage = async(id, file)=>{
             profileImageUrl: uploadedFiles[0].url, 
             },
              { returnDocument: "after" },
-            );
+            ).select("-password");
 };
 
 const updateUserRoles = async (id, roles, authUser) => {
+     const allowedRoles = [ROLE_ADMIN, ROLE_CUSTOMER, ROLE_MERCHANT, ROLE_SUPER_ADMIN, ];
+
+    const hasInvalidRole = roles.some(
+        (role) => !allowedRoles.includes(role)
+    );
+
+    if (hasInvalidRole) {
+        throw {
+            status: 400,
+            message: "Invalid role.",
+        };
+    }
+
     if (
         (roles.includes(ROLE_ADMIN) || roles.includes(ROLE_SUPER_ADMIN)) && 
         !authUser.roles.includes(ROLE_SUPER_ADMIN)
@@ -97,7 +110,7 @@ const updateUserRoles = async (id, roles, authUser) => {
         };
     }
     return await User.findByIdAndUpdate(id, { roles }, { returnDocument: "after" },
-    );
+    ).select("-password");
 };
 
 export default { 

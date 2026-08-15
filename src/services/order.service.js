@@ -3,6 +3,7 @@ import {
     ORDER_STATUS_CONFIRMED 
 } from "../constants/orderStatus.js";
 import Order from "../models/Order.js";
+import Product from "../models/Product.js";
 import Payment from "../models/Payment.js";
 import { 
     PAYMENT_METHOD_CASH,
@@ -117,6 +118,30 @@ const createOrder = async (data, authUser) => {
     if (!data.shippingAddress) {
         data.shippingAddress = user.address;
     }
+    const productIds = data.orderItems.map((item) => item.product);
+
+    const products = await Product.find({
+        _id: { $in: productIds },
+    });
+
+    let totalPrice = 0;
+
+    for (const item of data.orderItems) {
+        const product = products.find(
+            (product) => product._id.toString() === item.product.toString()
+        );
+
+        if (!product) {
+            throw {
+                status: 404,
+                message: "Product not found.",
+            };
+        }
+
+        totalPrice += product.price * item.quantity;
+    }
+    
+    data.totalPrice = totalPrice;
     data.orderNumber = crypto.randomUUID();
     data.user = authUser._id;
 
