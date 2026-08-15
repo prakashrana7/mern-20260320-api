@@ -72,8 +72,18 @@ const updateProduct= async(id, input, files) => {
 const deleteProduct= async(id, authUser)=>{
     const product = await getProductById(id);
 
-     if (authUser._id !== product.createdBy.toString() && !authUser.roles.includes(ROLE_ADMIN)) {
-            throw {
+    if (!product) {
+        throw {
+            status: 404,
+            message: "Product not found.",
+        };
+    }
+
+    const isAdmin = authUser.roles?.includes(ROLE_ADMIN);
+    const isOwner = product.createdBy?.toString() === authUser._id?.toString();
+     
+    if (!isOwner && !isAdmin) {
+        throw {
                 status: 403,
                 message: "Access denied.",
             };
