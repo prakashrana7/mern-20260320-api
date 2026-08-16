@@ -92,11 +92,12 @@ const confirmOrder = async (req, res) => {
         const order = await orderService.confirmOrder(
             req.params.id, 
             req.body?.status,
+            req.user,
         );
 
         res.json(order);
     } catch (error) {
-        res.status(400).json(error.message);
+        res.status(error.status || 400).json(error.message || "Unable to confirm order.");
     }
 };
 
