@@ -1,6 +1,8 @@
 import { 
     ORDER_STATUS_CANCELLED, 
-    ORDER_STATUS_CONFIRMED 
+    ORDER_STATUS_CONFIRMED,
+    ORDER_STATUS_DELIVERED,
+    ORDER_STATUS_SHIPPED 
 } from "../constants/orderStatus.js";
 import Order from "../models/Order.js";
 import Product from "../models/Product.js";
@@ -154,6 +156,33 @@ const updateOrderStatus = async (id, status) => {
 };
 
 const cancelOrder = async(id) => {
+     const order = await Order.findById(id);
+
+    if (!order) {
+        throw {
+            status: 404,
+            message: "Order not found.",
+        };
+    }
+
+    if (order.status === ORDER_STATUS_CANCELLED) {
+        throw {
+            status: 400,
+            message: "Order has already been cancelled.",
+        };
+    }
+
+    if (
+        order.status === ORDER_STATUS_CONFIRMED ||
+        order.status === ORDER_STATUS_SHIPPED ||
+        order.status === ORDER_STATUS_DELIVERED
+    ) {
+        throw {
+            status: 400,
+            message: "Order cannot be cancelled after it has been confirmed.",
+        };
+    }
+
     return await Order.findByIdAndUpdate(id, {status: ORDER_STATUS_CANCELLED }, { returnDocument: "after" },
     );
 };
@@ -162,8 +191,15 @@ const deleteOrder = async (id) => {
     await Order.findByIdAndDelete(id);
 };
 
-const confirmOrder = async (id, status) => {
+const confirmOrder = async (id, status, authUser) => {
     const order = await getOrderById(id);
+
+     if (order.user._id.toString() !== authUser._id.toString()) {
+        throw {
+            status: 403,
+            message: "Access denied.",
+        };
+    }
 
     if (status?.toUpperCase() != PAYMENT_STATUS_SUCCESS) {
         await Payment.findByIdAndUpdate(order.payment, {
