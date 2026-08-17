@@ -7,8 +7,11 @@ import { ROLE_ADMIN } from "../constants/roles.js";
 
 const getAllProducts = async (query) => {
     const sort = query?.sort ? JSON.parse(query.sort):{ createdAt: -1 };
-    const limit = query?.limit ?? 10;
-    const offset = query?.offset ?? 0;
+    const limit = Number(query?.limit ?? 10);
+
+    const page = Number(query?.page ?? 1);
+
+    const offset = query?.offset !== undefined ? Number(query.offset):(page - 1) * limit;
 
     const filters={};
 
