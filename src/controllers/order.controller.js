@@ -63,7 +63,7 @@ const updateOrderStatus = async (req, res) => {
 
         res.json(order);
     } catch (error) {
-        res.status(400).json(error.message);
+        res.status(error.status || 400).json({message: error.message || "Unable to update order status."});
     }
 };
 

@@ -1,4 +1,5 @@
 import { 
+    ORDER_STATUS_PENDING,
     ORDER_STATUS_CANCELLED, 
     ORDER_STATUS_CONFIRMED,
     ORDER_STATUS_DELIVERED,
@@ -151,8 +152,44 @@ const createOrder = async (data, authUser) => {
 };
 
 const updateOrderStatus = async (id, status) => {
-    return await Order.findByIdAndUpdate(id, { status }, { returnDocument: "after" },
+const allowedStatuses = [
+        ORDER_STATUS_PENDING,
+        ORDER_STATUS_CONFIRMED,
+        ORDER_STATUS_SHIPPED,
+        ORDER_STATUS_DELIVERED,
+        ORDER_STATUS_CANCELLED,
+    ];
+
+    if (!allowedStatuses.includes(status)) {
+        throw {
+            status: 400,
+            message: "Invalid order status.",
+        };
+    }
+    
+    if (!mongoose.isValidObjectId(id)) {
+        throw {
+            status: 404,
+            message: "Order not found.",
+        };
+    }
+
+    const order = await Order.findByIdAndUpdate(
+        id,
+         { status },
+         { returnDocument: "after",
+            runValidators: true,
+          },
     );
+
+     if (!order) {
+        throw {
+            status: 404,
+            message: "Order not found.",
+        };
+    }
+
+    return order;
 };
 
 const cancelOrder = async(id) => {
